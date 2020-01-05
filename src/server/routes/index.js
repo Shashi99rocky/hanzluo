@@ -11,13 +11,15 @@ const langData = require('../../utils/i18n-langs')
 
 /* GET home page. */
 router.get('/*', (req, res) => {
-  const context = {}
+  const context = {
+    userAgent: req.headers['user-agent'],
+  }
   const appString = renderToString(
     createElement(App, {
       Router: StaticRouter,
       routerProps: {
         location: req.originalUrl,
-        context: {},
+        context,
       },
       langData,
     })

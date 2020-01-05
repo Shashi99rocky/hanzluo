@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import './nav.less'
 
 function handleKeyPress(e) {
-  console.log(e);
+  // console.log(e)
 }
 
 const Nav = ({ location, t, i18n }) => {
@@ -40,6 +40,9 @@ const Nav = ({ location, t, i18n }) => {
                 <Menu.Item className="nav-item-desktop" key="/resume">
                   <Link to="/resume">{t('nav.resume')}</Link>
                 </Menu.Item>
+                {/* <Menu.Item className="nav-item-desktop" key="/music">
+                  <Link to="/music">{t('nav.music')}</Link>
+                </Menu.Item> */}
               </Menu>
             </Drawer>
           </Menu.Item>
@@ -51,6 +54,9 @@ const Nav = ({ location, t, i18n }) => {
           <Menu.Item className="nav-item-desktop" key="/resume">
             <Link to="/resume">{t('nav.resume')}</Link>
           </Menu.Item>
+          {/* <Menu.Item className="nav-item-desktop" key="/music">
+            <Link to="/music">{t('nav.music')}</Link>
+          </Menu.Item> */}
           <Menu.Item key="4" id="language-dropdown-nav-item">
             <Dropdown
               placement="bottomRight"
@@ -63,7 +69,9 @@ const Nav = ({ location, t, i18n }) => {
                     </div>
                   </Menu.Item>
                   <Menu.Item>
-                    <div onClick={() => i18n.setLang('zhCN')}>中文</div>
+                    <div role="menuitem" tabIndex={0} onKeyPress={handleKeyPress} onClick={() => i18n.setLang('zhCN')}>
+                      中文
+                    </div>
                   </Menu.Item>
                 </Menu>
               }

@@ -4,6 +4,7 @@ import { createI18n, I18nProvider } from 'react-simple-i18n'
 import { Layout } from 'antd'
 import Home from './home/home'
 import Resume from './resume/resume'
+import Music from './music/music'
 import Nav from './nav/nav'
 import Footer from './footer/footer'
 import './app.less'
@@ -20,6 +21,7 @@ const App = ({ langData, Router, routerProps }) => (
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/resume" component={Resume} />
+          <Route exact path="/music" component={Music} />
         </Switch>
         <Footer />
       </Layout>

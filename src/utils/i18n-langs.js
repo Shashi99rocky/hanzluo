@@ -11,6 +11,7 @@ module.exports = {
       introduction:
         "Hi, I'm a software engineer in Bay Area. I love open source, especially JavaScript ecosystem. Feel free to contact me!",
       projects: 'Projects',
+      music: 'Music',
       contact: {
         title: 'Contact',
         description: 'Your message will be sent to me after you submit the contact form.',
@@ -34,6 +35,7 @@ module.exports = {
       introduction:
         '大家好，我是一名身在硅谷湾区的软件工程师，喜欢各种开源，尤其是JS生态系统。如果有交流意向，欢迎联系我！',
       projects: '项目',
+      music: '音乐',
       contact: {
         title: '联系我',
         description: '填写以下表单给我发送消息',
