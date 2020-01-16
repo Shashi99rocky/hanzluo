@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { Layout, Row, Col, Card, Timeline } from 'antd'
-import { withI18n } from 'react-simple-i18n'
+import { withI18n, useI18n } from 'react-simple-i18n'
 import AudioPlayer from 'react-h5-audio-player'
 import MobileDetect from 'mobile-detect'
 import ContactForm from './contact-form'
@@ -69,7 +69,10 @@ const scrollTo = (to, duration) => {
   scroll(window.pageYOffset)
 }
 
-const Home = ({ t, staticContext }) => {
+const Home = ({ staticContext, t }) => {
+  console.log('render home')
+  const { a } = useI18n()
+  console.log(t)
   const [currentMusicIndex, setMusicIndex] = useState(0)
   function handleClickPrevious() {
     setMusicIndex(currentMusicIndex === 0 ? playlist.length - 1 : currentMusicIndex - 1)
@@ -274,9 +277,6 @@ const Home = ({ t, staticContext }) => {
           <h1>{t('home.music')}</h1>
         </Row>
         <Row className="" type="flex" justify="center">
-          {/* <Col xs={22} sm={14} md={12} lg={10} xl={7}>
-            1
-          </Col> */}
           <Col xs={22} sm={14} md={10} lg={8} xl={6}>
             <AudioPlayer
               showSkipControls={true}
