@@ -74,10 +74,7 @@ module.exports = (env = {}) => {
             loader: 'babel-loader',
             options: {
               presets: [
-                [
-                  '@babel/preset-env',
-                  { targets: isProd ? '> 1%, not dead' : { esmodules: true }, useBuiltIns: 'entry', corejs: 3 },
-                ],
+                ['@babel/preset-env', { targets: '> 0.5%, not dead', useBuiltIns: 'entry', corejs: 3 }],
                 ['@babel/preset-react'],
               ],
               plugins: [

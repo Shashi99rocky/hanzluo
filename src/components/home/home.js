@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { Layout, Row, Col, Card, Timeline } from 'antd'
 import { withI18n, useI18n } from 'react-simple-i18n'
-import AudioPlayer from 'react-h5-audio-player'
+import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player'
 import MobileDetect from 'mobile-detect'
 import ContactForm from './contact-form'
 import WordCloud from './react-d3-cloud'
@@ -70,9 +70,7 @@ const scrollTo = (to, duration) => {
 }
 
 const Home = ({ staticContext, t }) => {
-  console.log('render home')
   const { a } = useI18n()
-  console.log(t)
   const [currentMusicIndex, setMusicIndex] = useState(0)
   function handleClickPrevious() {
     setMusicIndex(currentMusicIndex === 0 ? playlist.length - 1 : currentMusicIndex - 1)
@@ -281,11 +279,12 @@ const Home = ({ staticContext, t }) => {
             <AudioPlayer
               showSkipControls={true}
               showJumpControls={false}
-              showVolumeControl={!md.mobile()}
               onClickPrevious={handleClickPrevious}
               onClickNext={handleClickNext}
               onEnded={handleClickNext}
               src={playlist[currentMusicIndex].src}
+              customVolumeControls={md.mobile() ? [] : [RHAP_UI.VOLUME]}
+              volume={0.8}
             />
             <div className="music-playlist">
               <ul>
